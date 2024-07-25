@@ -1,5 +1,6 @@
 ﻿using LogSearcherWeb.Interfaces;
 using SerilogFileSearcher;
+using System.Collections.Concurrent;
 
 namespace LogSearcherWeb.Services
 {
@@ -13,7 +14,7 @@ namespace LogSearcherWeb.Services
         }
 
 
-        public Task<Dictionary<string, List<string>>> SearchLogsAsync(string pattern)
+        public Task<ConcurrentDictionary<string, List<string>>> SearchLogsAsync(string pattern)
         {
             return Searcher.SearchAsync(_logDirectory, pattern);
         }

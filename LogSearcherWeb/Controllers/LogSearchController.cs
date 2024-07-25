@@ -1,6 +1,7 @@
 ﻿using LogSearcherWeb.Interfaces;
 using LogSearcherWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Concurrent;
 
 namespace LogSearcherWeb.Controllers
 {

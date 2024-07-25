@@ -1,7 +1,9 @@
-﻿namespace LogSearcherWeb.Interfaces
+﻿using System.Collections.Concurrent;
+
+namespace LogSearcherWeb.Interfaces
 {
     public interface ILogSearchService
     {
-        Task<Dictionary<string, List<string>>> SearchLogsAsync(string pattern);
+        Task<ConcurrentDictionary<string, List<string>>> SearchLogsAsync(string pattern);
     }
 }

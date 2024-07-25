@@ -1,13 +1,14 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Concurrent;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SerilogFileSearcher
 {
     public static class Searcher
     {
-        public static async Task<Dictionary<string, List<string>>> SearchAsync(string directoryPath, string searchPattern)
+        public static async Task<ConcurrentDictionary<string, List<string>>> SearchAsync(string directoryPath, string searchPattern)
         {
-            var finalResult = new Dictionary<string, List<string>>();
+            var finalResult = new ConcurrentDictionary<string, List<string>>();
 
             var logFiles = Directory.GetFiles(directoryPath, "*.log", SearchOption.AllDirectories);
 
