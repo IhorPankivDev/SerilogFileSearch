@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogSearcherWeb", "LogSearcherWeb\LogSearcherWeb.csproj", "{EAD82FF3-6572-46CD-B152-48B87109DEE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerilogFileSearcher", "SerilogFileSearcher\SerilogFileSearcher.csproj", "{364703B5-0702-4FE6-910B-2103D6FB1685}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerilogFileSearcher.Tests", "SerilogFileSearcher.Tests\SerilogFileSearcher.Tests.csproj", "{4C27F420-DE04-4A28-9278-ED23F8677FB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogFileSearcherConsole", "SerilogFileSearcherConsole\SerilogFileSearcherConsole.csproj", "{41FAD13F-F7E6-4BB5-8638-271859238300}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAD82FF3-6572-46CD-B152-48B87109DEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD82FF3-6572-46CD-B152-48B87109DEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD82FF3-6572-46CD-B152-48B87109DEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD82FF3-6572-46CD-B152-48B87109DEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{364703B5-0702-4FE6-910B-2103D6FB1685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{364703B5-0702-4FE6-910B-2103D6FB1685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{364703B5-0702-4FE6-910B-2103D6FB1685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{364703B5-0702-4FE6-910B-2103D6FB1685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C27F420-DE04-4A28-9278-ED23F8677FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C27F420-DE04-4A28-9278-ED23F8677FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C27F420-DE04-4A28-9278-ED23F8677FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C27F420-DE04-4A28-9278-ED23F8677FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FAD13F-F7E6-4BB5-8638-271859238300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FAD13F-F7E6-4BB5-8638-271859238300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FAD13F-F7E6-4BB5-8638-271859238300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FAD13F-F7E6-4BB5-8638-271859238300}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B73301B7-1589-41F3-A2E7-DABA14C4A26A}
+	EndGlobalSection
+EndGlobal
