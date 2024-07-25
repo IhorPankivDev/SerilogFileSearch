@@ -45,11 +45,11 @@
                             <td>@pageName</td>
                             <td>@logEntry</td>
                             <td>
-                                <a href="@Url.Action("ViewLogFile", "LogSearch", new 
-                                { 
+                                <a href="@Url.Action("ViewLogFile", "LogSearch", new
+                                {
                                     highlightLine = @logEntry,
-                                    filePath = pageName, 
-                                    lineNumber = @Model[pageName].IndexOf(logEntry) 
+                                    filePath = pageName,
+                                    lineNumber = @Model[pageName].IndexOf(logEntry)
                                 })" class="btn btn-primary">View</a>
                             </td>
                         </tr>
@@ -57,6 +57,17 @@
                 }
             </tbody>
         </table>
+
+        <nav>
+            <ul class="pagination">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="javascript:goToPage(@i)">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
     }
 </div>
 
@@ -80,6 +91,16 @@
                     }
                 }
             }
+        }
+
+        function goToPage(page) {
+            var form = document.querySelector('form');
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'page';
+            input.value = page;
+            form.appendChild(input);
+            form.submit();
         }
     </script>
 }

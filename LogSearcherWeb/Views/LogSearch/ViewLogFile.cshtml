@@ -1,11 +1,9 @@
 ﻿@model LogSearcherWeb.Models.LogFileViewModel
 
 <div class="container">
-
     <h1>Log File: @Model.FilePath</h1>
 
     <table class="table table-striped">
-        
         <thead>
             <tr>
                 <th>Line Number</th>
@@ -16,13 +14,35 @@
         <tbody>
             @for (int i = 0; i < Model.Lines.Count; i++)
             {
-                <tr class="@(@Model.Lines[i] == Model.HighlightLine ? "table-warning" : "")">
-                    <td>@i</td>
+                var lineNumber = (Model.PageNumber - 1) * Model.PageSize + i;
+                <tr class="@(lineNumber == Model.HighlightLineIndex ? "table-warning" : "")">
+                    <td>@lineNumber</td>
                     <td>@Model.Lines[i]</td>
                 </tr>
             }
         </tbody>
-
     </table>
 
+    <nav>
+        <ul class="pagination">
+            @if (Model.PageNumber > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("ViewLogFile", new { filePath = Model.FilePath, pageNumber = Model.PageNumber - 1, pageSize = Model.PageSize, highlightLine = Model.HighlightLine })">Previous</a>
+                </li>
+            }
+            @for (int i = 1; i <= (int)Math.Ceiling(Model.TotalLines / (double)Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("ViewLogFile", new { filePath = Model.FilePath, pageNumber = i, pageSize = Model.PageSize, highlightLine = Model.HighlightLine })">@i</a>
+                </li>
+            }
+            @if (Model.PageNumber < (int)Math.Ceiling(Model.TotalLines / (double)Model.PageSize))
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("ViewLogFile", new { filePath = Model.FilePath, pageNumber = Model.PageNumber + 1, pageSize = Model.PageSize, highlightLine = Model.HighlightLine })">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
 </div>
