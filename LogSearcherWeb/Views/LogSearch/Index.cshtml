@@ -17,16 +17,7 @@
     @if (Model != null && Model.Any())
     {
         <h2>Search Results</h2>
-        <div class="form-group">
-            <label for="pageFilter">Filter by Page:</label>
-            <select class="form-control" id="pageFilter" onchange="filterTable()">
-                <option value="">All Pages</option>
-                @foreach (var pageName in Model.Keys)
-                {
-                    <option value="@pageName">@pageName</option>
-                }
-            </select>
-        </div>
+       
         <table class="table table-striped" id="resultsTable">
             <thead>
                 <tr>
@@ -73,26 +64,6 @@
 
 @section Scripts {
     <script>
-        function filterTable() {
-            var select, filter, table, tr, td, i, txtValue;
-            select = document.getElementById("pageFilter");
-            filter = select.value.toUpperCase();
-            table = document.getElementById("resultsTable");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 1; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (filter === "" || txtValue.toUpperCase() === filter) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
         function goToPage(page) {
             var form = document.querySelector('form');
             var input = document.createElement('input');
