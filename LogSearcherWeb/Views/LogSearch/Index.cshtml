@@ -5,8 +5,9 @@
 </div>
 
 <div class="container">
+
     <h1>Log Searcher</h1>
-    <form asp-action="Search" method="post">
+    <form asp-action="Search" method="get">
         <div class="form-group">
             <label for="pattern">Input your search Pattern:</label>
             <input type="text" class="form-control" id="pattern" name="pattern" value="@ViewBag.Pattern" required />
