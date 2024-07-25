@@ -18,5 +18,4 @@ namespace LogSearcherWeb.Services
             return Searcher.SearchAsync(_logDirectory, pattern);
         }
     }
-
 }

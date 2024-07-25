@@ -19,11 +19,21 @@ namespace LogSearcherWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Search(string pattern)
+        public async Task<IActionResult> Search(string pattern, int page = 1, int pageSize = 10)
         {
             var results = await _logSearchService.SearchLogsAsync(pattern);
-            return View("Index", results);
+            var pagedResults = results
+                .SelectMany(kvp => kvp.Value.Select(log => new { Page = kvp.Key, Log = log }))
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .GroupBy(item => item.Page)
+                .ToDictionary(g => g.Key, g => g.Select(item => item.Log).ToList());
+
+            ViewBag.TotalPages = (int)Math.Ceiling((double)results.Sum(kvp => kvp.Value.Count) / pageSize);
+            ViewBag.CurrentPage = page;
+            ViewBag.Pattern = pattern;
+
+            return View("Index", pagedResults);
         }
 
         [HttpGet]

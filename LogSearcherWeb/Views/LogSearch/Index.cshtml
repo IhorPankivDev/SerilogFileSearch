@@ -9,7 +9,7 @@
     <form asp-action="Search" method="post">
         <div class="form-group">
             <label for="pattern">Input your search Pattern:</label>
-            <input type="text" class="form-control" id="pattern" name="pattern" required />
+            <input type="text" class="form-control" id="pattern" name="pattern" value="@ViewBag.Pattern" required />
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
