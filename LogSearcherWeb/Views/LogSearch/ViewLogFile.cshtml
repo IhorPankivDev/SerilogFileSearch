@@ -1,0 +1,28 @@
+﻿@model LogSearcherWeb.Models.LogFileViewModel
+
+<div class="container">
+
+    <h1>Log File: @Model.FilePath</h1>
+
+    <table class="table table-striped">
+        
+        <thead>
+            <tr>
+                <th>Line Number</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Lines.Count; i++)
+            {
+                <tr class="@(@Model.Lines[i] == Model.HighlightLine ? "table-warning" : "")">
+                    <td>@i</td>
+                    <td>@Model.Lines[i]</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>

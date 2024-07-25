@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs
+/LogSearcherWeb/bin/Debug/net8.0
+/LogSearcherWeb/obj/Debug/net8.0
+/SerilogFileSearcher/obj/Debug/net8.0
+/SerilogFileSearcher/bin/Debug/net8.0
+/SerilogFileSearcher/obj
+/LogSearcherWeb/obj
+/SerilogFileSearcherConsole/obj
+/SerilogFileSearcherConsole/bin/Debug/net8.0
+/SerilogFileSearcher.Tests/bin/Debug/net8.0
+/SerilogFileSearcher.Tests/obj/Debug/net8.0
+/SerilogFileSearcher.Tests/obj

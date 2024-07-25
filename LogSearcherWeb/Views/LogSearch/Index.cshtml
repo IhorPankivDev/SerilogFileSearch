@@ -1,0 +1,85 @@
+﻿@model Dictionary<string, List<string>>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<div class="container">
+    <h1>Log Searcher</h1>
+    <form asp-action="Search" method="post">
+        <div class="form-group">
+            <label for="pattern">Input your search Pattern:</label>
+            <input type="text" class="form-control" id="pattern" name="pattern" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <h2>Search Results</h2>
+        <div class="form-group">
+            <label for="pageFilter">Filter by Page:</label>
+            <select class="form-control" id="pageFilter" onchange="filterTable()">
+                <option value="">All Pages</option>
+                @foreach (var pageName in Model.Keys)
+                {
+                    <option value="@pageName">@pageName</option>
+                }
+            </select>
+        </div>
+        <table class="table table-striped" id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>Log Entry</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var kvp in Model)
+                {
+                    var pageName = kvp.Key;
+                    foreach (var logEntry in kvp.Value)
+                    {
+                        <tr>
+                            <td>@pageName</td>
+                            <td>@logEntry</td>
+                            <td>
+                                <a href="@Url.Action("ViewLogFile", "LogSearch", new 
+                                { 
+                                    highlightLine = @logEntry,
+                                    filePath = pageName, 
+                                    lineNumber = @Model[pageName].IndexOf(logEntry) 
+                                })" class="btn btn-primary">View</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function filterTable() {
+            var select, filter, table, tr, td, i, txtValue;
+            select = document.getElementById("pageFilter");
+            filter = select.value.toUpperCase();
+            table = document.getElementById("resultsTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (filter === "" || txtValue.toUpperCase() === filter) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+}
