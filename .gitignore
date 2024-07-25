@@ -14,3 +14,6 @@
 /SerilogFileSearcher.Tests/bin/Debug/net8.0
 /SerilogFileSearcher.Tests/obj/Debug/net8.0
 /SerilogFileSearcher.Tests/obj
+bin/
+obj/
+
