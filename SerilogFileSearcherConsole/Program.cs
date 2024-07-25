@@ -25,10 +25,13 @@ namespace SerilogFileSearcherConsole
 
                     foreach (var kvp in results)
                     {
-                        Console.WriteLine($"File: {kvp.Key}");
-                        foreach (var line in kvp.Value)
+                        if (kvp.Value.Count > 1)
                         {
-                            Console.WriteLine($"  {line}");
+                            Console.WriteLine($"File: {kvp.Key}");
+                            foreach (var line in kvp.Value)
+                            {
+                                Console.WriteLine($"  {line}");
+                            }
                         }
                     }
                 }
